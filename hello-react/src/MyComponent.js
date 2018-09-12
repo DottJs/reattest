@@ -18,12 +18,10 @@ class MyComponent extends Component {
     }
     
     //변화하는 값을 사용하기 위해서는 state 를 사용한다.
-    //값을 업데이트 하기 위해서는 setState를 사용해야한다.
-    constructor(props){
-        super(props);
-        this.state = {
-            number : 0,
-        }
+    //값을 업데이트 하기 위해서는 setState({사용할 state : 조건}})를 사용해야한다.
+    //state를 단순하게 사용하는 방법
+    state = {
+        number : 0,
     }
     
     render(){
@@ -32,7 +30,7 @@ class MyComponent extends Component {
                 <p>저는 {this.props.name} 입니다.</p>
                 <p>저는 {this.props.age} 살입니다.</p>
                 <p>숫자 : {this.state.number}</p>
-                <button onClick={()=>{
+                <button onClick={ () => {
                     this.setState({
                         number : this.state.number + 1
                     })
