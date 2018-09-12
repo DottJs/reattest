@@ -34,7 +34,7 @@ class MyComponent extends Component {
                     this.setState({
                         number : this.state.number + 1
                     })
-                }
+                }   
                 }> 더하기 </button>
             </div>
         )

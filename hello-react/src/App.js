@@ -1,12 +1,15 @@
 import React, { Component } from 'react';
-import MyComponent from './MyComponent';
+// import MyComponent from './MyComponent';
+import EventPart from './eventPart'; //첫글자는 대문자로 시작해야한다.
 
 class App extends Component {
 
   render() {
     return (
-      // 생성한 컴포넌트에서 prop으로 잡은 것 = {표시할 내용}}
-      <MyComponent name='Kim' age={20}/> //{'Kim'} JS코드안의 문자열이란 의미로 
+      // 첫글자는 대문자로 시작해야 된다.
+      <div>
+          <EventPart />
+      </div>
     );
   }
 }
