@@ -2,22 +2,27 @@ import React, {Component} from 'react';
 
 class EventPart extends Component{
     state = {
-        message : 0
+        message : ''
     }
-    
+
+    handleChang = (e) => {
+        this.setState({
+            message : e.target.value
+        });
+    }
+
+    handleOnClick = () =>{
+        alert(this.state.message);
+        this.setState({message : ''});
+    }
+
     render(){
         return(
             <div>
-                <input type="text" 
-                        name="message"
-                        placeholder="값을 입력해주세요"
-                        value={this.state.message}
-                        onChange={(e) => { this.setState({message : e.target.value}) }}>
+                <input type="text" name="message" value={this.state.message} placeholder="값" onChange={this.handleChang}>
                 </input>
-                <button onClick={()=>{
-                    alert(this.state.message); 
-                    this.setState({message : ''})
-                }}>State버튼</button>
+                <button onClick={this.handleOnClick}>
+                버튼</button>
             </div>
         )
     }
