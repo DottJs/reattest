@@ -1,42 +1,26 @@
-import React,{ Component } from 'react';
+import React, {Component} from 'react';
 
-
-class eventPart extends Component{
+class EventPart extends Component{
     state = {
-        message : ''
+        message : 0
     }
+    
     render(){
         return(
             <div>
-                <h1>
-                    First Events
-                </h1>
-                <input 
-                type="text"
-                name="message"
-                placeholder="값을 입력해 주세요"
-                value={this.state.message}
-                onChange={
-                    (e) => { this.setState({
-                        message : e.target.value
-                    })
-                    }
-                }
-                />
-                <button
-                onClick={
-                    (e) =>{
-                        alert(this.state.message);
-                        this.setState({
-                            message : ''
-                        });
-                    }
-                }
-                >입력한 State를 확인</button>
-                
+                <input type="text" 
+                        name="message"
+                        placeholder="값을 입력해주세요"
+                        value={this.state.message}
+                        onChange={(e) => { this.setState({message : e.target.value}) }}>
+                </input>
+                <button onClick={()=>{
+                    alert(this.state.message); 
+                    this.setState({message : ''})
+                }}>State버튼</button>
             </div>
         )
     }
 }
 
-export default eventPart;
+export default EventPart;
