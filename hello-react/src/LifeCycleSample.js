@@ -11,7 +11,7 @@ class LifeCycleSample extends Component{
 
     constructor(props){
         super(props);
-        console.log('constructor props 생성');
+        console.log('constructor props 생성 // 1 실행됨');
     }
 
     static getDerivedStateFromProps(nextProps, prevState){ //마운트 //업데이트
@@ -24,11 +24,12 @@ class LifeCycleSample extends Component{
     }
 
     componentDidMount(){ //마운트 / 랜더링 이후
-        console.log('componentDidMount 실행 마운트/업데이트')
+        console.log('componentDidMount 실행 마운트/업데이트 // 3 실행 / 3 값이변하면 실행됨')
     };
 
     shouldComponentUpdate(nextProps, nextState){ //업데이트
-        console.log('shouldComponentUpdate / Props 값이 변하면 업데이트/ 나머지가 4이면 이후 작업을 실행하지 않는다.', nextProps, nextState);
+        console.log('shouldComponentUpdate /값이 변하면 1 실행됨// Props 값이 변하면 업데이트', nextProps, nextState);
+        console.log('조건에 따라 False이면 shouldComponentUpdate 만 실행됨 / 나머지가 4이면 이후 작업을 실행하지 않는다')
         return nextState.number % 10 !== 4;
         // 마지막자리가 4이면 false를 반환하며, 업데이트를 시키지 않는다. 
     }
@@ -59,7 +60,7 @@ class LifeCycleSample extends Component{
 
    
     render(){
-        console.log('render UI를 출력함')
+        console.log('render UI를 출력함 // 2 실행 / 값이 변하면 2 실행됨')
         const style = {color : this.props.color};
         return(
             <div>
